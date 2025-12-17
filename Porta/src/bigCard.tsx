@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface BigCardProps{
     visible: React.Dispatch<React.SetStateAction<boolean>>;
