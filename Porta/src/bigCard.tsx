@@ -21,7 +21,7 @@ export default function BigCard({visible}:BigCardProps) {
 
     return (
         <div className="fixed top-0 left-0 w-full h-full bg-gray-900/80 flex justify-center items-center text-black" onClick={()=>visible(false)}>
-            <div className='w-330 h-220 grid grid-rows-[1fr_1fr] rounded-2xl shadow-xl/40 bg-radial-[at_25%_25%] from-slate-900 via-indigo-950 to-slate-900 to-90%' onClick={(e) => e.stopPropagation()}>
+            <div className='w-[80vw] h-[90vh]  grid grid-rows-[1fr_1fr] rounded-2xl shadow-xl/40 bg-radial-[at_25%_25%] from-slate-900 via-indigo-950 to-slate-900 to-90%' onClick={(e) => e.stopPropagation()}>
                 <section
                     className="w-full p-5 grid gap-2 transition-all duration-300 "
                     style={{ gridTemplateColumns: changeSize(selected) }}
@@ -32,7 +32,7 @@ export default function BigCard({visible}:BigCardProps) {
                     <div className="bg-[url(./assets/firstProject/fpp4.png)] bg-cover bg-center  bg-no-repeat w-full h-full rounded-2xl cursor-pointer hover:scale-[1.01] transition-transform shadow-2xl" onClick={() => setSelected(4)}></div>
                     <div className=" bg-[url(./assets/firstProject/fpp5.png)] bg-cover bg-center  bg-no-repeat w-full h-full rounded-2xl cursor-pointer hover:scale-[1.01] transition-transform shadow-2xl" onClick={() => setSelected(5)}></div>
                 </section>
-                <section className="w-full text-2xl h-full grid grid-cols-3 justify-rounded text-white p-5 gap-2">
+                <section className="w-full text-2xl min-h-full grid grid-cols-1 md:grid-cols-3 justify-rounded text-white p-5 gap-2 overflow-y-auto">
                     <div className="flex flex-col   p-3 ">
                         <h1 className="pb-2">
                             Why kind of App is this?
