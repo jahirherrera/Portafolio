@@ -30,7 +30,7 @@ function App() {
           <source src={video} type='video/mp4' />
         </video>
         <div className='relative '>
-          <div className='text-indigo-600 flex gap-2'>
+          <div className='text-indigo-600 flex gap-2 text-xl p-2'>
               <a href='#home' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>Home</a>
               <a href='#projects' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>Projecs</a>
               <a href='#about' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>About Me</a>
