@@ -111,7 +111,7 @@ function App() {
             <div className='w-[80%] flex flex-wrap justify-around '>
               <Card image='./assets/chatapp.png' title='Chat App (ByteTalk)' type='FullStack App' stack={['CSS', 'HTML', 'typescript', 'react', 'Java', 'SB', 'SQL', 'github']} showing={() => sendProps(imagesP1, paraP1)} />
               <Card image='./assets/monkeytype.png' title='MonkeyType (ProgrammerType)' type='FullStack App' stack={['CSS', 'HTML', 'typescript', 'react', 'Java', 'SB', 'SQL', 'github']} showing={() => sendProps(imagesP2, paraP2)} />
-              <Card image='./assets/project3.png' title='Algorightm Vizualizer' type='Data structures and Visualization' stack={['CSS', 'HTML', 'JS', 'react', 'github']} showing={() => sendProps(imagesP3,paraP1)} />
+              <Card image='./assets/project3.png' title='Algorightm Vizualizer' type='Data structures and Visualization' stack={['CSS', 'HTML', 'JS', 'react', 'github']} showing={() => sendProps(imagesP3,paraP3)} />
             </div>
           </section> {/* 050E3C , 132440, 30475E  */}
           <section id='about' className='w-full min-h-screen  text-white flex flex-col  p-6 '>
