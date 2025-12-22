@@ -24,6 +24,9 @@ import tpp2 from './assets/thirdProject/tpp2.png';
 import tpp3 from './assets/thirdProject/tpp3.png';
 import tpp4 from './assets/thirdProject/tpp4.png';
 import tpp5 from './assets/thirdProject/tpp5.png';
+import image1 from './assets/chatapp.png';
+import image2 from './assets/monkeytype.png';
+import image3 from './assets/project3.png';
 
 function App() {
 
@@ -109,9 +112,9 @@ function App() {
           <section className='flex flex-col justify-center items-center w-full pb-10'>
             <h1 className='text-indigo-700 text-4xl p-10'>Projects</h1>
             <div className='w-[80%] flex flex-wrap justify-around '>
-              <Card image='./assets/chatapp.png' title='Chat App (ByteTalk)' type='FullStack App' stack={['CSS', 'HTML', 'typescript', 'react', 'Java', 'SB', 'SQL', 'github']} showing={() => sendProps(imagesP1, paraP1)} />
-              <Card image='./assets/monkeytype.png' title='MonkeyType (ProgrammerType)' type='FullStack App' stack={['CSS', 'HTML', 'typescript', 'react', 'Java', 'SB', 'SQL', 'github']} showing={() => sendProps(imagesP2, paraP2)} />
-              <Card image='./assets/project3.png' title='Algorightm Vizualizer' type='Data structures and Visualization' stack={['CSS', 'HTML', 'JS', 'react', 'github']} showing={() => sendProps(imagesP3,paraP3)} />
+              <Card image={image1} title='Chat App (ByteTalk)' type='FullStack App' stack={['CSS', 'HTML', 'typescript', 'react', 'Java', 'SB', 'SQL', 'github']} showing={() => sendProps(imagesP1, paraP1)} />
+              <Card image={image2} title='MonkeyType (ProgrammerType)' type='FullStack App' stack={['CSS', 'HTML', 'typescript', 'react', 'Java', 'SB', 'SQL', 'github']} showing={() => sendProps(imagesP2, paraP2)} />
+              <Card image={image3} title='Algorightm Vizualizer' type='Data structures and Visualization' stack={['CSS', 'HTML', 'JS', 'react', 'github']} showing={() => sendProps(imagesP3,paraP3)} />
             </div>
           </section> {/* 050E3C , 132440, 30475E  */}
           <section id='about' className='w-full min-h-screen  text-white flex flex-col  p-6 '>
