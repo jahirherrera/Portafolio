@@ -1,28 +1,58 @@
 import './App.css'
+import Header from './header';
+import SquareBottom from './squareBottom';
 import video from "./assets/video.mp4"
 import BigCard from './bigCard';
 import { Activity, useState } from 'react';
-//@ts-ignore
 import sprite from './assets/sprite.svg';
 import DisappearingDiv from './disappiring';
+import SquareTop from './squareTop';
+import SquareBL from './squareBL';
+import Card from './card';
+import fpp1 from './assets/firstProject/fpp1.png';
+import fpp3 from './assets/firstProject/fpp3.png';
+import fpp2 from './assets/firstProject/fpp2.png';
+import fpp4 from './assets/firstProject/fpp4.png';
+import fpp5 from './assets/firstProject/fpp5.png';
+import spp1 from './assets/secondProject/spp1.png';
+import spp2 from './assets/secondProject/spp2.png';
+import spp3 from './assets/secondProject/spp3.png';
+import spp4 from './assets/secondProject/spp4.png';
+import spp5 from './assets/secondProject/spp5.png';
+import tpp1 from './assets/thirdProject/tpp1.png';
+import tpp2 from './assets/thirdProject/tpp2.png';
+import tpp3 from './assets/thirdProject/tpp3.png';
+import tpp4 from './assets/thirdProject/tpp4.png';
+import tpp5 from './assets/thirdProject/tpp5.png';
 
 function App() {
 
-  const [firstBigCard, setFirstBigCard] = useState<boolean>(false);
-  const [globalText,SetGlobalText] = useState<string>("");
+  const [showBigCard, setShowBigCard] = useState<boolean>(false);
+  const [globalText, SetGlobalText] = useState<string>("");
   const [show, setShow] = useState<boolean>(false);
+  const [images, setImages] = useState<string[]>([]);
+  const [para, setPara] = useState<string[]>([]);
 
-  function copping(text:string){
+  const imagesP1 = [fpp1, fpp3,fpp2,fpp4,fpp5];
+  const paraP1 = ['This is a chat application called Bytetalking, which allows users to create their own servers with customizable privacy settings (public or private). Users can also rank other profiles by awarding stars. The app includes numerous default public servers, enabling users to join and engage immediately', 'I created this chat application to gain hands on experience building a real-time platform. Through this project, I learned how to design and manage public and private servers, implement user interactions, and structure a robust database to support dynamic features. This project allowed me to strengthen my skills in full-stack development while solving practical communication challenges.', 'The frontend of the application was built using TypeScript with React, while the backend leverages Java Spring Boot. PostgreSQL was used for the database to ensure reliable data storage. Additionally, I implemented key technologies such as OAuth2, JWT authentication, cookies, localStorage, WebSockets, and STOMP.js, among others, to provide secure, real-time, and dynamic functionality throughout the app.'];
+  const imagesP2 = [spp1,spp2,spp3,spp4,spp5];
+  const paraP2 = ['This is a typing practice application inspired by Monkeytype, designed to help users improve their typing speed and accuracy. The app allows users to take timed typing tests, track their performance metrics (such as WPM and accuracy), and manage their profiles securely. Authenticated users can access personalized features, while the clean and responsive interface ensures an engaging and distraction free typing experience.','I created this application to deepen my understanding of building user focused, performance driven web applications. Through this project, I focused on authentication flows, user session management, and secure account recovery. Implementing features like password reset via email helped me gain practical experience with real-world authentication scenarios, while reinforcing my full-stack development skills and attention to security best practices.','The frontend of the application was built using TypeScript with React, while the backend was developed using Java Spring Boot. PostgreSQL was used for reliable and scalable data storage. I implemented authentication and security features using OAuth2, JWT, cookies, and localStorage. For account recovery, I integrated JavaMailSender to handle the “forgot password” functionality via email. These technologies work together to provide a secure, responsive, and user-friendly typing platform.']
+  const imagesP3 = [tpp1,tpp2,tpp3,tpp4,tpp5];
+  const paraP3 = ['This is an algorithm visualization application designed to help users understand how common algorithms work step by step. The app visually demonstrates sorting and searching algorithms in real time, allowing users to observe how data changes during each operation. Implemented algorithms include Bubble Sort, Insertion Sort, Quick Sort, A* pathfinding, Binary Search, and Interpolation Search, making the platform a practical learning tool for algorithm fundamentals.', 'I created this application to reinforce my understanding of algorithms and data structures through visual and interactive representations. By transforming abstract algorithmic logic into animations, I gained deeper insight into algorithm behavior, performance characteristics, and trade offs. This project also strengthened my frontend development skills, particularly in state management, rendering optimization, and building intuitive educational interfaces.', 'The application was built entirely using JavaScript with React, focusing exclusively on frontend development. Core concepts such as state management, component based architecture, and animation handling were used to simulate algorithm execution in real time. This frontend-only approach allowed me to concentrate on performance, visualization clarity, and user interaction without relying on backend services.']
+  
+  function copping(text: string) {
     SetGlobalText(text);
     setShow(true);
   }
-  {/* 
-    Things to do :
-    separate components
-    improve/fixed the UI
-    addd the BigCard for every card
 
-  */}
+  function sendProps(i: string[], p: string[]) {
+    setImages(i);
+    setPara(p);
+    setShowBigCard(true)
+  }
+
+
+
   return (
     <>
       <div className=''>
@@ -31,16 +61,12 @@ function App() {
         </video>
         <div className='relative '>
           <div className='text-indigo-600 flex gap-2 text-xl p-2'>
-              <a href='#home' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>Home</a>
-              <a href='#projects' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>Projecs</a>
-              <a href='#about' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>About Me</a>
-              <a href='#contact' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>Contact me</a>
+            <a href='#home' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>Home</a>
+            <a href='#projects' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>Projecs</a>
+            <a href='#about' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>About Me</a>
+            <a href='#contact' className='hover:scale-105 hover:border-b hover:cursor-pointer border-indigo-500 transition-all ease-in-out'>Contact me</a>
           </div>
-          <header id='home' className='flex flex-col justify-center items-center w-full h-screen  text-white'>
-            <div className='w-60 h-60 rounded-full bg-[url(./assets/pic.png)] bg-cover bg-center bg-no-repeat mb-2'></div>
-            <h1 className='text-5xl inline mb-2'> Hi, I'm <span className='text-indigo-700 mr-3 ml-3'>Jahir</span> Herrera</h1>
-            <h3 className='pt-4 max-w-2xl text-xl text-center'>I’m a full-stack developer skilled in Java, JavaScript, and TypeScript, building scalable backend systems and modern, responsive front-end applications. I focus on writing clean, maintainable code and delivering solutions that are fast, reliable, and user-friendly.</h3>
-          </header>
+          <Header />
           <section id='projects' className='flex flex-col justify-center items-center '>
             <h1 className='text-indigo-700 text-4xl p-10'>
               Stack
@@ -83,168 +109,20 @@ function App() {
           <section className='flex flex-col justify-center items-center w-full pb-10'>
             <h1 className='text-indigo-700 text-4xl p-10'>Projects</h1>
             <div className='w-[80%] flex flex-wrap justify-around '>
-              <div className='w-100 h-120 m-2  rounded-3xl flex flex-col justify-between items-center hover:cursor-pointer hover:scale-110 transform ease-in-out transition-all shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] bg-white'
-                onClick={() => { firstBigCard ? setFirstBigCard(false) : setFirstBigCard(true) }}>
-                <div className='w-full h-50 rounded-t-3xl bg-[url(./assets/chatapp.png)] bg-contain border-b-2 border-black' >
-
-                </div>
-                <h1 className='text-xl font-bold p-1'>
-                  Chat App (ByteTalk)
-                </h1>
-                <h1 className='text-xl font-bold p-1 text-indigo-700'>
-                  FullStack App
-                </h1>
-                <div className='flex gap-0.5'>
-                  <h1 className='text-xl font-bold p-1 text-indigo-700'>Stack used: </h1>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#CSS`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#HTML`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#typescript`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer" >
-                    <use href={`${sprite}#react`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#Java`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer" >
-                    <use href={`${sprite}#SB`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#SQL`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#github`} />
-                  </svg>
-                </div>
-                <button className='w-40 bg-indigo-700 text-white font-bold rounded-2xl mb-2'> Click To View More</button>
-              </div>
-              <div className='w-100 h-120 m-2 rounded-3xl flex flex-col justify-between items-center hover:cursor-pointer hover:scale-110 transform ease-in-out transition-all shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] bg-white'>
-                <div className='w-full h-50 rounded-t-3xl bg-[url(./assets/monkeytype.png)] bg-contain border-b-2 border-black' >
-
-                </div>
-                <h1 className='text-xl font-bold p-1'>
-                  MonkeyType (ProgrammerType)
-                </h1>
-                <h1 className='text-xl font-bold p-1 text-indigo-700'>
-                  FullStack App
-                </h1>
-                <div className='flex gap-0.5'>
-                  <h1 className='text-xl font-bold p-1 text-indigo-700'>Stack used: </h1>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#CSS`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#HTML`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#typescript`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer" >
-                    <use href={`${sprite}#react`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#Java`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer" >
-                    <use href={`${sprite}#SB`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#SQL`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#github`} />
-                  </svg>
-                </div>
-                <button className='w-40 bg-indigo-700 text-white font-bold rounded-2xl mb-2'> Click To View More</button>
-              </div>
-              <div className='w-100 h-120 m-2 rounded-3xl flex flex-col justify-between items-center hover:cursor-pointer hover:scale-110 transform ease-in-out transition-all shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)] bg-white'>
-                <div className='w-full h-50 rounded-t-3xl bg-[url(./assets/project3.png)] bg-contain border-b-2 border-black' >
-
-                </div>
-                <h1 className='text-xl font-bold p-1'>
-                  Algorightm Vizualizer
-                </h1>
-                <h1 className='text-xl font-bold p-1 text-indigo-700'>
-                  Data structures and Visualization
-                </h1>
-                <div className='flex gap-0.5'>
-                  <h1 className='text-xl font-bold p-1 text-indigo-700'>Stack used: </h1>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#CSS`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#HTML`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#JS`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer" >
-                    <use href={`${sprite}#react`} />
-                  </svg>
-                  <svg width="24" height="24" className="hover:cursor-pointer ">
-                    <use href={`${sprite}#github`} />
-                  </svg>
-                </div>
-                <button className='w-40 bg-indigo-700 text-white font-bold rounded-2xl mb-2'> Click To View More</button>
-              </div>
+              <Card image='./assets/chatapp.png' title='Chat App (ByteTalk)' type='FullStack App' stack={['CSS', 'HTML', 'typescript', 'react', 'Java', 'SB', 'SQL', 'github']} showing={() => sendProps(imagesP1, paraP1)} />
+              <Card image='./assets/monkeytype.png' title='MonkeyType (ProgrammerType)' type='FullStack App' stack={['CSS', 'HTML', 'typescript', 'react', 'Java', 'SB', 'SQL', 'github']} showing={() => sendProps(imagesP2, paraP2)} />
+              <Card image='./assets/project3.png' title='Algorightm Vizualizer' type='Data structures and Visualization' stack={['CSS', 'HTML', 'JS', 'react', 'github']} showing={() => sendProps(imagesP3,paraP1)} />
             </div>
           </section> {/* 050E3C , 132440, 30475E  */}
           <section id='about' className='w-full min-h-screen  text-white flex flex-col  p-6 '>
             <h1 className='text-4xl pt-10 pl-10 pb-1 border-b border-indigo-600 max-w-60 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)]'>About Me</h1>
             <div className='flex flex-col justify-around h-full mb-3'>
-              <div className='text-3xl p-10 rounded-2xl shadow-2xl'>
-                <h1 className='max-w-2xl text-xl font-bold pb-3'>
-                  Who Am I?
-                </h1>
-                <h2 className='text-2xl leading-relaxed p-1'>
-                  My programming journey began in <span className='text-indigo-500 text-2xl'> 2017 </span>, when I started studying <span className='text-indigo-500 text-2xl'> Computer Engineering </span> in Colombia. After two years of study, life circumstances required me to pause my education and relocate to the United States.
+              <SquareTop />
 
-                  In 2022, I decided to continue the path I had started by returning to school. I enrolled at <span className='text-indigo-500 text-2xl'> St. Petersburg College</span>, where I graduated with a degree in <span className='text-indigo-500 text-2xl'> Computer & Information Science.</span> I also completed the required coursework to transfer to the <span className='text-indigo-500 text-2xl'>University of South Florida</span>, where I am currently pursuing a <span className='text-indigo-500 text-2xl'>Computer Science </span> degree.
 
-                  These experiences strengthened my resilience and reinforced my commitment to building a career in software development through continuous learning and hands-on projects.
-
-                </h2>
-              </div>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-10 mt-3'>
-                <div className=' rounded-2xl p-8 text-2xl  shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)]'>
-                  <h1 className='text-3xl font-bold pb-3'>
-                    Education
-                  </h1>
-                  <div className='p-4 '>
-                    <h1>Research and Development University, Colombia 2017-2019</h1>
-                    <p>
-                      Computer Engineering
-                    </p>
-                  </div>
-                  <div className='p-4 '>
-                    <h1>St Petersburg College, St Petersburg, FL 2023-2025</h1>
-                    <p>
-                      Associate in Science (A.S.) – Computer & Information Science
-                    </p>
-                  </div>
-                  <div className='p-4 ' >
-                    <h1>University of South Florida, Tampa, FL 2026-</h1>
-                    <p>
-                      Bachelor’s Degree (B.S.) – Computer Science
-                    </p>
-                  </div>
-
-
-
-                </div>
-                <div className='text-2xl  rounded-2xl p-8 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.9)]'>
-                  <h1 className='text-3xl font-bold pb-3'>
-                    Experience
-                  </h1>
-                  <h2 className='text-2xl p-1 leading-relaxed'>
-                    Although I do not yet have formal professional experience, I have built multiple projects that demonstrate my ability to solve problems and develop practical, real-world solutions. I bring a high level of motivation, passion for software development, and strong enthusiasm to begin my professional career in the tech industry.
-                  </h2>
-                </div>
+                <SquareBL />
+                <SquareBottom />
               </div>
             </div>
 
@@ -252,7 +130,7 @@ function App() {
           <footer id='contact' className='p-5 flex flex-col border-t border-indigo-700'>
             <h1 className=' flex flex-row text-indigo-700 justify-center p-5 text-4xl font-bold'>Contact me</h1>
             <div className='flex flex-row justify-around p-4 m-1'>{/*  improve the ui when you copy eihter the phone number or email */}
-              <p className='flex  justify-center items-center' onClick={()=>{navigator.clipboard.writeText("7272779828");copping("you have copied the number succefully")}}>
+              <p className='flex  justify-center items-center' onClick={() => { navigator.clipboard.writeText("7272779828"); copping("you have copied the number succefully") }}>
                 <svg width="70" height="70" className="hover:cursor-pointer ">
                   <use href={`${sprite}#phone`} />
                 </svg>
@@ -275,8 +153,8 @@ function App() {
             </div>
           </footer>
         </div>
-        <Activity mode={firstBigCard ? "visible" : "hidden"}>
-          <BigCard visible={setFirstBigCard} />
+        <Activity mode={showBigCard ? "visible" : "hidden"}>
+          <BigCard visible={setShowBigCard} images={images} para={para} />
         </Activity>
 
         {
